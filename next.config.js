@@ -13,6 +13,9 @@ const nextConfig = {
   generateBuildId: async () => {
     return 'build-' + Date.now();
   },
+  images: {
+    domains: ['www.onlinegames.io', 'via.placeholder.com'],
+  },
 };
 
 module.exports = nextConfig;
