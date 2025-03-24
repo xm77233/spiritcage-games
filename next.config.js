@@ -9,7 +9,7 @@ const nextConfig = {
       },
     ];
   },
-  output: 'standalone',
+  output: 'export',
   generateBuildId: async () => {
     return 'build-' + Date.now();
   },
