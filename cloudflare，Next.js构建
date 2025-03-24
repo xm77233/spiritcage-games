@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    runtime: 'edge',
-  },
   async rewrites() {
     return [
       {
@@ -11,6 +8,10 @@ const nextConfig = {
         destination: 'https://www.onlinegames.io/media/plugins/genGames/embed.json',
       },
     ];
+  },
+  output: 'standalone',
+  generateBuildId: async () => {
+    return 'build-' + Date.now();
   },
 };
 
