@@ -9,7 +9,7 @@ interface Game {
   embed: string;
   image: string;
   description?: string;
-  tags?: string[] | string | any;
+  tags?: string[] | string | Record<string, string>;
 }
 
 export default function GamePage() {
@@ -38,7 +38,7 @@ export default function GamePage() {
           setGame(null);
         } else {
           // 为每个游戏添加唯一ID（如果API中没有提供）
-          const gamesWithIds = games.map((game: any, index: number) => ({
+          const gamesWithIds = games.map((game: Game, index: number) => ({
             ...game,
             id: game.id || index + 1
           }));
