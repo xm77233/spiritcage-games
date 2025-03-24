@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Game {
   id?: string | number;
@@ -102,7 +103,15 @@ export default function Home() {
           <div className="games-grid">
             {filteredGames.map(game => (
               <div key={game.id} className="game-card">
-                <img src={game.image || 'https://via.placeholder.com/300x180'} alt={game.title} />
+                <div style={{ position: 'relative', width: '100%', height: '180px' }}>
+                  <Image
+                    src={game.image || 'https://via.placeholder.com/300x180'}
+                    alt={game.title}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
                 <div className="game-info">
                   <h3>{game.title}</h3>
                   <p>{game.description || '没有描述'}</p>
